@@ -9,23 +9,23 @@
   <p>Cart Quantity</p>
 
   <button onClick="
-    console.log(cart);
-
+    console.log(`Cart Quantity: ${cart}`);
   ">Show Quantity</button>
-  <button onClick="
-    cart = cart + 1;
 
+  <button onClick="
+    console.log(`Added +1 in Cart: ${cart = cart + 1}`);
   ">Add to Cart</button>
+
   <button onclick="
-    cart = cart + 2;
+    console.log(`Added +2 in Cart: ${cart = cart + 2}`);
   "> +2</button>
 
   <button onclick="
-    cart = cart + 3;
+    console.log(`Added +3 in Cart: ${cart = cart + 3}`);
   ">+3</button>
 
   <button onclick="
-    cart = 0;
+    console.log(`Cart Reset: ${cart = 0}`);
   ">Reset Cart</button>
 
   <script>
