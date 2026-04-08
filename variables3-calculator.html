@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>calculator</title>
+  <style>
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      display: flex;
+      flex-direction: row;
+    }
+
+    button {
+      margin-right: 5px;
+      margin-bottom: 10px;
+      height: 25px;
+      width: 25px;
+    }
+
+    .clr-btn {
+      width: 115px;
+      ;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>Calculator</p>
+    <div class="calc-ctn">
+      <div class="line">
+        <button onclick="calc = calc + '1'; console.log(calc)">1</button>
+        <button onclick="calc = calc + '2'; console.log(calc)">2</button>
+        <button onclick="calc = calc + '3'; console.log(calc)">3</button>
+        <button onclick="calc = calc + ' + '; console.log(calc)">+</button>
+      </div>
+      <div class="line">
+        <button onclick="calc = calc + '4'; console.log(calc)">4</button>
+        <button onclick="calc = calc + '5'; console.log(calc)">5</button>
+        <button onclick="calc = calc + '6'; console.log(calc)">6</button>
+        <button onclick="calc = calc + ' - '; console.log(calc)">-</button>
+      </div>
+      <div class="line">
+        <button onclick="calc = calc + '7'; console.log(calc)">7</button>
+        <button onclick="calc = calc + '8'; console.log(calc)">8</button>
+        <button onclick="calc = calc + '9'; console.log(calc)">9</button>
+        <button onclick="calc = calc + ' * '; console.log(calc)">*</button>
+      </div>
+      <div class="line">
+        <button onclick="calc = calc + '0'; console.log(calc)">0</button>
+        <button onclick="calc = calc + '.'; console.log(calc)">.</button>
+        <button onclick="console.log(eval(calc))">=</button>
+        <button onclick="calc = calc + ' / '; console.log(calc)">/</button>
+      </div>
+      <div class="line">
+        <button class="clr-btn" onclick="calc = ''; console.log(calc)">Clear</button>
+      </div>
+    </div>
+
+    <script>
+      let calc = '';
+    </script>
+</body>
+
+</html>

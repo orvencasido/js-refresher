@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>5a</title>
+</head>
+
+<body>
+  <button onclick="
+    console.log(`${cart}`);
+  ">Show Cart</button>
+
+  <button onclick="
+    cart++;
+    console.log(`+1 in Cart`);
+  ">Add to Cart</button>
+
+  <button onclick="
+    cart += 2;
+    console.log(`+2 in Cart`);
+  ">+2</button>
+
+  <button onclick="
+    cart += 3;
+    console.log(`+3 in Cart`);
+  ">+3</button>
+
+  <button onclick="
+    cart += 4;
+    console.log(`+4 in Cart`);
+  ">+4</button>
+
+  <button onclick="
+    cart += 5;
+    console.log(`+5 in Cart`);
+  ">+5</button>
+
+  <button onclick="
+    cart = 0;
+    console.log(`Cart Emptied`);
+  ">Clear Cart</button>
+
+  <button onclick="
+    cart--;
+    console.log(`Cart -1`);
+  ">-1</button>
+
+  <script>
+
+    let cart = 0;
+
+    //Old Act
+    let name = `Orven Casidope`;
+    console.log(`My Name is ${name}`);
+
+    let cost = 0;
+
+    let coffee = 5;
+    let bagels = 3;
+    let soup = 9;
+
+    let tax = 0;
+    let taxMultiplier = 0.1;
+
+    cost = coffee + (2 * bagels) + soup;
+    tax = cost * taxMultiplier;
+    let totalCost = cost + tax;
+
+    console.log(`Cost of food: ${cost}`);
+
+    console.log(`Tax (10%): $${tax}`);
+    console.log(`Total Cost: $${totalCost}`);
+  </script>
+</body>
+
+</html>

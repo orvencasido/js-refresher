@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rock, Paper & Scissors</title>
+</head>
+
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <button onclick="
+  random = Math.round(Math.random() * 9) + 1;
+  if (random >=1 && random < 4) {
+    result = 'rock';
+  } else if (random <=4 && random < 7) {
+    result = 'paper';
+  } else if (random >= 7 && random <10) {
+    result = 'scissors';
+  }
+
+  if (result === 'rock') {
+    console.log(`You picked Rock. Computer picked ${result}. Tie`);
+  } else if (result === 'paper') {
+    console.log(`You picked Rock. Computer picked ${result}. You Lose`)
+  } else if (result === 'scissors') {
+    console.log(`You picked Rock. Computer picker ${result}. You win!`);
+  }
+  ">Rock</button>
+
+  <button onclick="
+  random = Math.round(Math.random() * 9) + 1;
+  if (random >=1 && random < 4) {
+    result = 'rock';
+  } else if (random <=4 && random < 7) {
+    result = 'paper';
+  } else if (random >= 7 && random <10) {
+    result = 'scissors';
+  }
+
+  if (result === 'rock') {
+    console.log(`You picked Paper. Computer picked ${result}. You win!`);
+  } else if (result === 'paper') {
+    console.log(`You picked Paper. Computer picked ${result}. Tie`)
+  } else if (result === 'scissors') {
+    console.log(`You picked Paper. Computer picker ${result}. You lose!`);
+  }
+  ">Paper</button>
+
+  <button onclick="
+  random = Math.round(Math.random() * 9) + 1;
+  if (random >=1 && random < 4) {
+    result = 'rock';
+  } else if (random <=4 && random < 7) {
+    result = 'paper';
+  } else if (random >= 7 && random <10) {
+    result = 'scissors';
+  }
+
+  if (result === 'rock') {
+    console.log(`You picked Scissors. Computer picked ${result}. You lose!`);
+  } else if (result === 'paper') {
+    console.log(`You picked Scissors. Computer picked ${result}. You win!`)
+  } else if (result === 'scissors') {
+    console.log(`You picked Scissors. Computer picker ${result}. Tie`);
+  }
+  ">Scissors</button>
+
+  <script>
+    let random = ``;
+    let result = ``;
+  </script>
+</body>
+
+</html>
