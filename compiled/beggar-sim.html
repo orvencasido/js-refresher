@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <p>Beggar Simulator</p>
+  <p>Money: <span id="moneyOutput">0</span></p>
+  <button onclick="begMoney()">Beg Money</button>
+
+  <p>Ownerships:</p>
+  <button>Buy Cardboard $1</button>
+  <button>Buy House $500</button>
+  <button>Buy Condo $50,000</button>
+
+  <script>
+    let money = 0;
+
+    function begMoney() {
+      let earn = Math.round(Math.random() * 10);
+      money = earn + money;
+
+      document.getElementById('moneyOutput').innerHTML = money;
+    }
+
+
+  </script>
+</body>
+
+</html>

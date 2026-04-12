@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <p>Beggar Simualtor</p>
+  <button onclick="
+    console.log(money);
+  ">Show Money</button>
+  <button onclick="beg()">Beg Randomly</button>
+  <button onclick="buyMansion()">Buy House</button>
+
+  <script>
+    let money = 0;
+
+    function beg() {
+      let earned = Math.round(Math.random() * 9);
+
+      console.log(`You Earned +${earned} PHP`);
+
+      money = money + earned;
+    }
+
+    function showMoney() {
+      console.log(`Show Money: ${money} PHP`);
+    }
+
+    function buyMansion() {
+      let mansion = 100;
+
+      if (money >= 100) {
+        console.log(`Sucessfully Purchased a Manion`);
+        money = 0;
+      } else
+        console.log(`Money isnt Enough`);
+    }
+  </script>
+</body>
+
+</html>

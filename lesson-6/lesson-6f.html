@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lesson 6f</title>
+</head>
+
+<body>
+  <p>Lesson 6f</p>
+
+  <script>
+    let result = Math.round(Math.random() * 5);
+    let guess = `heads`;
+    let text = '';
+
+    if (result < 3) {
+      console.log(`Number: ${result}: Heads`);
+      text = `heads`;
+    } else {
+      console.log(`Number: ${result}: Tails`);
+      text = `tails`;
+    }
+
+    console.log((text === guess) ? 'YOU WIN!' : 'YOU LOSE!'); 
+  </script>
+</body>
+
+</html>

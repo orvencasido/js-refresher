@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rock, Paper & Scissors</title>
+</head>
+
+<body>
+  <p>Rock Paper Scissors Game</p>
+  <button onclick="game(`rock`)">Rock</button>
+  <button onclick="game(`paper`)">Paper</button>
+  <button onclick="game(`scissors`)">Scissors</button>
+  <p>Your Move: <span id="userMoveDisplay"></span></p>
+  <p>Computer Move: <span id="computerMoveDisplay"></span></p>
+  <p>Result: <span id="result"></span></p>
+  <p>Win Streak: <span id="winStreakDisplay">0</span></p>
+
+  <script>
+    let counter = 0;
+
+    function winStreak(winStreakValue) {
+      if (winStreakValue == 1) {
+        displayResult(counter += 1, 'winStreakDisplay');
+      } else if (winStreakValue == 2) {
+        displayResult(counter, 'winStreakDisplay');
+      } else if (winStreakValue == 0) {
+        displayResult(counter = 0, 'winStreakDisplay');
+      }
+
+      return counter;
+    }
+
+    function computerMove() {
+      let num = Math.round(Math.random() * 11);
+      let computerMove = '';
+
+      if (num <= 3) {
+        computerMove = `rock`;
+      } else if (num >= 4 && num <= 7) {
+        computerMove = `paper`;
+      } else if (num >= 8 && num <= 11) {
+        computerMove = `scissors`;
+      }
+
+      return computerMove;
+    }
+
+    function displayResult(displayText, idText) {
+      let resultGame = document.getElementById(idText);
+      resultGame.innerHTML = displayText;
+    }
+
+    function game(userPick) {
+      let user = userPick;
+      let computerMoved = computerMove();
+      let winStreakResult = true;
+
+      if (userPick === `rock`) {
+        if (user === computerMoved) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`tie`, `result`);
+          winStreak(2);
+        } else if (computerMoved === `paper`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you lose`, `result`);
+          winStreak(0);
+        } else if (computerMoved === `scissors`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you win`, `result`);
+          winStreak(1);
+        }
+      } else if (userPick === `paper`) {
+        if (user === computerMoved) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`tie`, `result`);
+          winStreak(2);
+        } else if (computerMoved === `scissors`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you lose`, `result`);
+          winStreak(0);
+        } else if (computerMoved === `rock`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you win`, `result`);
+          winStreak(1);
+        }
+      } else if (userPick === `scissors`) {
+        if (user === computerMoved) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`tie`, `result`);
+          winStreak(2);
+        } else if (computerMoved === `rock`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you lose`, `result`);
+          winStreak(0);
+        } else if (computerMoved === `paper`) {
+          displayResult(`${userPick}`, `userMoveDisplay`);
+          displayResult(`${computerMoved}`, `computerMoveDisplay`);
+          displayResult(`you win`, `result`);
+          winStreak(1);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <p>Money: <span id="moneyText">0</span></p>
+  <button onclick="moneyManager.begMoney(100, 105)">Beg (+10)</button>
+  <button onclick="moneyManager.addMoney()">Add Money</button>
+
+  <script>
+    class MoneyManager {
+      constructor() {
+        this.money = 0;
+      }
+
+      begMoney(minValue, maxValue) {
+        let earnedMoney = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+        this.money += earnedMoney;
+        this.displayMoney();
+      }
+
+      addMoney() {
+        this.money += 10; // Adds 10 to the current amount
+        this.displayMoney();
+      }
+
+      displayMoney() {
+        let displayMoneyText = document.getElementById('moneyText');
+        displayMoneyText.innerHTML = this.money;
+      }
+    }
+
+    const moneyManager = new MoneyManager(); // Create an instance of MoneyManager
+  </script>
+</body>
+
+</html>
