@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    button {
+      margin-right: 5px;
+      margin-bottom: 5px;
+      width: 5%;
+    }
+
+    .clear-btn {
+      width: 151px;
+    }
+
+    .result,
+    .res {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Calculator</p>
+
+  <div class="calc-ctn">
+    <div class="calc-line">
+      <button onclick="num('1')">1</button>
+      <button onclick="num('2')">2</button>
+      <button onclick="num('3')">3</button>
+      <button onclick="num('+')">+</button>
+    </div>
+
+    <div class="calc-line">
+      <button onclick="num('4')">4</button>
+      <button onclick="num('5')">5</button>
+      <button onclick="num('6')">6</button>
+      <button onclick="num('-')">-</button>
+    </div>
+
+    <div class="calc-line">
+      <button onclick="num('7')">7</button>
+      <button onclick="num('8')">8</button>
+      <button onclick="num('9')">9</button>
+      <button onclick="num('*')">*</button>
+    </div>
+
+    <div class="calc-line">
+      <button onclick="num('0')">0</button>
+      <button onclick="num('.')">.</button>
+      <button onclick="equal()">=</button>
+      <button onclick="num('/')">/</button>
+    </div>
+
+    <div class="calc-line">
+      <button class="clear-btn" onclick="clearCalc()">Clear</button>
+    </div>
+  </div>
+
+  <div class="result" id="display"></div>
+  <div class="res" id="displayResult"></div>
+
+  <script>
+    let result = '';
+
+    function displayText(value = '') {
+      document.getElementById('display').innerHTML = value;
+    }
+
+    function displayTextResult(value = '') {
+      document.getElementById('displayResult').innerHTML = value;
+    }
+
+    function num(value) {
+      result = result + value;
+      displayText(result);
+    }
+
+    function equal() {
+      result = eval(result);
+      displayTextResult(result);
+    }
+
+    function clearCalc() {
+      result = '';
+      displayText('');
+      displayTextResult('');
+    }
+  </script>
+
+</body>
+
+</html>
