@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Heads or Tails</title>
+</head>
+
+<body>
+  <button onclick="playGame(`heads`)">Heads</button>
+  <button onclick="playGame(`tails`)">Tails</button>
+  <button onclick="clearScore()">Clear Score</button>
+
+  <div>
+    <p>You Picked: <span id="userPick"></span></p>
+    <p>Computer Picked: <span id="comPick"></span></p>
+    <p>Result: <span id="result"></span></p>
+  </div>
+
+  <div>
+    <p>Win: <span id="winText"></span></p>
+    <p>Loss: <span id="lossText"></span></p>
+  </div>
+
+  <script>
+    let score = JSON.parse(localStorage.getItem(`score`)) || {
+      wins: 0,
+      loss: 0
+    }
+
+    document.getElementById(`winText`).innerHTML = score.wins;
+    document.getElementById(`lossText`).innerHTML = score.loss;
+
+    function displayText(user, com, res) {
+      document.getElementById(`userPick`).innerHTML = user;
+      document.getElementById(`comPick`).innerHTML = com;
+      document.getElementById(`result`).innerHTML = res;
+    }
+
+    function displayScore(result) {
+      if (result === `correct`) {
+        document.getElementById(`winText`).innerHTML = score.wins += 1;
+      } else if (result === `incorrect`) {
+        document.getElementById(`lossText`).innerHTML = score.loss += 1;
+      }
+
+      localStorage.setItem(`score`, JSON.stringify(score));
+    }
+
+    function playGame(user) {
+      let computerMove = Math.round(Math.random() * 9);
+      let computerText = ``;
+      let result = ``;
+
+      if (computerMove <= 4 && computerMove >= 0) {
+        computerText = `heads`;
+      } else if (computerMove <= 9 && computerMove >= 5) {
+        computerText = `tails`;
+      }
+
+      if (user === computerText) {
+        result = `correct`;
+        displayText(user, computerText, result);
+        displayScore(result);
+      } else if (computerText !== user) {
+        result = `incorrect`;
+        displayText(user, computerText, result);
+        displayScore(result);
+      }
+    }
+
+    function clearScore() {
+      document.getElementById(`winText`).innerHTML = score.wins = 0;
+      document.getElementById(`lossText`).innerHTML = score.loss = 0;
+
+      localStorage.setItem(`score`, JSON.stringify(score));
+    } 
+  </script>
+</body>
+
+</html>
