@@ -2,23 +2,42 @@
 <html>
 
 <head>
-  <title>Lesson Objects</title>
+  <title>Objectss</title>
 </head>
 
 <body>
-  <p>Objects</p>
-
   <script>
-    num1 = 1;
-    num2 = 2;
-    const product = {
-      add: num1 + num2,
-      subtract: num1 - num2,
-      multiply: num1 * num2,
-      divide: num1 / num2
+    let product1 = {
+      name: `iphodne`,
+      price: 599
     }
 
-    console.log(product.add);
+    let product2 = {
+      name: `iphone`,
+      price: 599
+    }
+
+    function comparePrice(product1, product2) {
+      if (product1.price < product2.price) {
+        return product1
+      } else if (product2.price < product1.price) {
+        return product2
+      }
+    }
+
+    function isSameProduct(product1, product2) {
+      if (product1.name === product2.name && product1.price === product2.price) {
+        return true;
+      } else
+        return false;
+    }
+
+    console.log(isSameProduct(product1, product2));
+
+    let result = `orbs`.repeat(5);
+
+    console.log(result);
+
   </script>
 </body>
 

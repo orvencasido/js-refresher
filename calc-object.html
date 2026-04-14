@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calc Objects</title>
+  <style>
+    body {
+      background-color: black;
+      height: 100%;
+      width: 100%;
+    }
+
+    button {
+      margin-bottom: 5px;
+      margin-right: 5px;
+      width: 5%;
+    }
+
+    .clr-btn {
+      width: 154px;
+    }
+  </style>
+</head>
+
+<body>
+  <div calc-ctn>
+    <div calc-line>
+      <button onclick="setChar(`1`)">1</button>
+      <button onclick="setChar(`2`)">2</button>
+      <button onclick="setChar(`3`)">3</button>
+      <button onclick="setChar(`+`)">+</button>
+    </div>
+
+    <div calc-line>
+      <button onclick="setChar(`4`)">4</button>
+      <button onclick="setChar(`5`)">5</button>
+      <button onclick="setChar(`6`)">6</button>
+      <button onclick="setChar(`-`)">-</button>
+    </div>
+
+    <div calc-line>
+      <button onclick="setChar(`7`)">7</button>
+      <button onclick="setChar(`8`)">8</button>
+      <button onclick="setChar(`9`)">9</button>
+      <button onclick="setChar(`*`)">*</button>
+    </div>
+
+    <div calc-line>
+      <button onclick="setChar(`0`)">0</button>
+      <button onclick="setChar(`.`)">.</button>
+      <button onclick="computeCalc()">=</button>
+      <button onclick="setChar(`/`)">/</button>
+    </div>
+
+    <div class="calc-line">
+      <button class="clr-btn" onclick="clearCalc()">Clear</button>
+    </div>
+  </div>
+
+  <script>
+    let storedCalc = localStorage.getItem("calculate");
+    let calc = storedCalc ? JSON.parse(storedCalc) : "";
+    console.log(calc);
+
+    function setChar(number) {
+      calc = calc + number;
+      updateDisplay();
+    }
+
+    function computeCalc() {
+      let totalCalc = eval(calc);
+
+      calc = totalCalc;
+      localStorage.setItem("calculate", totalCalc);
+
+      updateDisplay();
+    }
+
+    function clearCalc() {
+      calc = "";
+      localStorage.setItem("calculate", "");
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      console.log(calc);
+    }
+  </script>
+</body>
+
+</html>
