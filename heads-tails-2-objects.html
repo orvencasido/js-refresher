@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Heads vs Tails</title>
+  <style>
+    .score {
+      display: flex;
+      gap: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="playGame(`heads`)">Heads</button>
+  <button onclick="playGame(`tails`)">Tails</button>
+  <button onclick="clearGame()">Clear Score</button>
+
+  <div>
+    <p>You Picked: <span id="userPickDisplay"></span></p>
+    <p>Computer Picked: <span id="comPickDisplay"></span></p>
+    <p>Result: <span id="resultDisplay"></span></p>
+  </div>
+
+  <div class="score">
+    <p>Wins: <span id="winDisplay">0</span></p>
+    <p>Loss: <span id="lossDisplay">0</span></p>
+  </div>
+
+  <script>
+    let resultDecision = ``;
+    let gameResult = ``;
+
+    let score = JSON.parse(localStorage.getItem(`score`)) || {
+      wins: 0,
+      loss: 0
+    }
+
+    displayScore(score.wins, score.loss);
+
+    function playGame(user) {
+      let gameDecision = Math.round(Math.random() * 9);
+
+      if (gameDecision >= 4) {
+        resultDecision = `heads`;
+      } else {
+        resultDecision = `tails`;
+      }
+
+      if (resultDecision === user) {
+        gameResult = `you win`;
+        displayText(user, resultDecision, gameResult);
+      } else if (resultDecision !== user) {
+        gameResult = `you lose`;
+        displayText(user, resultDecision, gameResult);
+      }
+
+      if (gameResult === `you win`) {
+        displayScore(score.wins += 1, score.loss);
+      } else if (gameResult === `you lose`) {
+        displayScore(score.wins, score.loss += 1);
+      }
+
+      localStorage.setItem(`score`, JSON.stringify(score));
+    }
+
+    function displayText(user, com, res) {
+      document.getElementById(`userPickDisplay`).innerHTML = user;
+      document.getElementById(`comPickDisplay`).innerHTML = com;
+      document.getElementById(`resultDisplay`).innerHTML = res;
+    }
+
+    function displayScore(win, loss) {
+      document.getElementById(`winDisplay`).innerHTML = win;
+      document.getElementById(`lossDisplay`).innerHTML = loss;
+    }
+
+    function clearGame() {
+      score.wins = 0;
+      score.loss = 0;
+
+      localStorage.setItem(`score`, JSON.stringify(score));
+      displayScore(score.wins, score.loss);
+    }
+  </script>
+</body>
+
+</html>
