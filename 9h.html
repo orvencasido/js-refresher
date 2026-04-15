@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>9h</title>
+</head>
+
+<body>
+  <input class="keyBinds" onkeyup="copyKeyBindings()" type="text">
+  <p class="displayKeyBinds"></p>
+
+  <script>
+    let text = ``;
+
+    function copyKeyBindings() {
+      displayText(text += event.key);
+      console.log(event.key);
+
+    }
+
+    function displayText(displayKeyBinds) {
+      document.querySelector(`.displayKeyBinds`).innerHTML = displayKeyBinds;
+    }
+  </script>
+</body>
+
+</html>

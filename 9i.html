@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <button onclick="displayCart()">Show Quantity</button>
+
+  <button onclick="qtyAddToCart(1)">Add to Cart</button>
+  <button onclick="qtyAddToCart(2)">+2</button>
+  <button onclick="qtyAddToCart(3)">+3</button>
+  <button onclick="qtyAddToCart(4)">+4</button>
+  <button onclick="qtyAddToCart(5)">+5</button>
+  <button onclick="qtyRemoveToCart(1)">Remove from Cart</button>
+  <button onclick="qtyRemoveToCart(2)">-2</button>
+  <button onclick="qtyRemoveToCart(3)">-3</button>
+
+  <p>Cart Quantity: <span class="displayCart">0</span></p>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem(`cart`)) || 0;
+    displayCart()
+
+    function qtyAddToCart(num) {
+      cart += num;
+      displayCart(cart);
+
+      localStorage.setItem(`cart`, JSON.stringify(cart));
+    }
+
+    function qtyRemoveToCart(num) {
+      cart -= num;
+
+      if (cart < 0) {
+        cart = 0;
+      }
+
+      displayCart(cart);
+      localStorage.setItem(`cart`, JSON.stringify(cart));
+    }
+
+    function displayCart() {
+      document.querySelector(`.displayCart`).innerHTML = cart;
+    }
+  </script>
+</body>
+
+</html>

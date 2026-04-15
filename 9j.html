@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <style>
+    p {
+      margin: 0;
+    }
+
+    button {
+      margin-bottom: 5px;
+      margin-right: 5px;
+      height: 40px;
+      width: 40px;
+    }
+
+    .clr-btn {
+      width: 188px;
+    }
+
+    .display-screen-ctn {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 20px;
+      border-width: 1px;
+      border-color: black;
+      height: 50px;
+      width: 171px;
+      border-style: solid;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 15px;
+    }
+
+    .display-equation {
+      display: flex;
+    }
+
+    .display-result {
+      display: flex;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="display-screen-ctn">
+    <p class="display-equation">0</p>
+    <p class="display-result">0</p>
+  </div>
+
+  <div class="calc-line">
+    <button onclick="getChar(1)">1</button>
+    <button onclick="getChar(2)">2</button>
+    <button onclick="getChar(3)">3</button>
+    <button onclick=" getChar(`+`)">+</button>
+  </div>
+
+  <div class="calc-line">
+    <button onclick="getChar(4)">4</button>
+    <button onclick="getChar(5)">5</button>
+    <button onclick="getChar(6)">6</button>
+    <button onclick="getChar(`-`)">-</button>
+  </div>
+
+  <div class="calc-line">
+    <button onclick="getChar(7)">7</button>
+    <button onclick="getChar(8)">8</button>
+    <button onclick="getChar(9)">9</button>
+    <button onclick="getChar(`*`)">*</button>
+  </div>
+
+  <div class="calc-line">
+    <button onclick="getChar(0)">0</button>
+    <button onclick="getChar(`.`)">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="getChar(`/`)">/</button>
+  </div>
+
+  <div class="calc-line">
+    <button onclick="clearDisplay()" class="clr-btn">Clear</button>
+  </div>
+
+  <script>
+    let calc = JSON.parse(localStorage.getItem(`calculate`)) || '';
+    let resultCalculate = JSON.parse(localStorage.getItem(`calculateRes`)) || '';
+    displayEquation(calc || 0);
+    displayScore(resultCalculate || 0);
+
+    function getChar(num) {
+      calc += num;
+      displayEquation(calc);
+    }
+
+    function calculate() {
+      resultCalculate = eval(calc);
+      displayScore(resultCalculate);
+
+      localStorage.setItem(`calculate`, JSON.stringify(calc));
+      localStorage.setItem(`calculateRes`, JSON.stringify(resultCalculate));
+    }
+
+    function displayEquation(eq) {
+      let displayEq = document.querySelector(`.display-equation`);
+      displayEq.innerHTML = eq;
+    }
+
+    function displayScore(result) {
+      let displaySc = document.querySelector(`.display-result`);
+      displaySc.innerHTML = result;
+    }
+
+    function clearDisplay() {
+      calc = ``;
+      resultCalculate = ``;
+
+      displayScore(0);
+      displayEquation(0);
+
+      localStorage.setItem(`calculate`, JSON.stringify(calc));
+      localStorage.setItem(`calculateRes`, JSON.stringify(resultCalculate));
+    }
+  </script>
+</body>
+
+</html>

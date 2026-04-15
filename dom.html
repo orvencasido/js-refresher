@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>dom</title>
+</head>
+
+<body>
+  <button class="btn">9a</button>
+  <button class="js-btn-9b" onclick="button9b()">9b</button>
+  <br> <br>
+  <button class="js-btn-heads" onclick="challenge9c(`heads`)">heads</button>
+  <button class="js-btn-tails" onclick="challenge9c(`tail`)">tails</button>
+  <p>You choose: <span class="js-decision"></span></p>
+
+  <input type="text" class="js-inputText" onkeydown="enterKey()">
+  <button class="js-buttonSubmit" onclick="displayName()">Submit</button>
+  <p>Your Name is: <span class="js-displayClass"></span></p>
+
+  <script>
+    function enterKey() {
+      if (event.key == `Enter`) {
+        displayName();
+      }
+    }
+
+    function displayName() {
+      let textInput = document.querySelector(`.js-inputText`).value;
+      let displayName = document.querySelector(`.js-displayClass`);
+      displayName.innerHTML = textInput;
+
+      console.log(textInput);
+    }
+
+    function button9b() {
+      let button9b = document.querySelector(`.js-btn-9b`);
+      button9b.innerHTML = `hi`;
+    }
+
+    let gameResult = ``;
+
+    function challenge9c(text) {
+      let heads = document.querySelector(`.js-btn-heads`);
+      let tails = document.querySelector(`.js-btn-tails`);
+      let result = document.querySelector(`.js-decision`);
+
+      result.innerHTML = text;
+    }
+
+    function game() {
+
+    }
+
+  </script>
+</body>
+
+</html>
