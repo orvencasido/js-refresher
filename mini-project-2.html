@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mini Project 2</title>
+  <style>
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    button {
+      padding: 10px 25px;
+    }
+
+    button {
+      border-style: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 70%;
+    }
+
+    button:active {
+      opacity: 30%;
+    }
+
+    .btn-on {
+      background-color: black;
+      color: white;
+    }
+
+    .btn-off {
+      background-color: white;
+      color: black;
+      border-color: black;
+      border-style: solid;
+      border-width: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Light On/Off Toggle</p>
+  <p>Button <span class="colorVar"></span></p>
+  <button onclick="themeMode()" class="btn-on">On</button>
+
+  <script>
+    function themeMode() {
+      let buttonOn = document.querySelector('.btn-on');
+
+      if (buttonOn.innerHTML === `On`) {
+        buttonOn.innerHTML = `Off`;
+        buttonOn.classList.add(`btn-off`);
+        buttonOn.classList.add(`black-body`);
+        displayText(`Off`);
+      } else {
+        buttonOn.innerHTML = `On`;
+        buttonOn.classList.remove(`btn-off`);
+        displayText(`On`);
+      }
+    }
+
+    function displayText(txtDisplay) {
+      document.querySelector(`.colorVar`).innerHTML = txtDisplay;
+    }
+
+  </script>
+</body>
+
+</html>
