@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mini Project 1</title>
+  <style>
+    p {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      margin-right: 15px;
+      border-style: none;
+      background-color: skyblue;
+      cursor: pointer;
+      padding: 10px 20px;
+
+      font-size: 20px;
+    }
+
+    button:hover {
+      opacity: 70%;
+    }
+
+    button:active {
+      opacity: 30%;
+    }
+
+    .reset-btn {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="title">Button Counter</p>
+  <p>Button Count: <span class="js-countDisplay"></span></p>
+  <button onclick="addCount()">Add 1</button>
+  <button onclick="resetCount()" class="reset-btn">Reset</button>
+
+  <script>
+    let count = 0;
+
+    function addCount() {
+      count += 1;
+      displayCount(count);
+    }
+
+    function resetCount() {
+      count = 0;
+      displayCount(count);
+    }
+
+    function displayCount(display) {
+      document.querySelector('.js-countDisplay').innerHTML = display;
+    } 
+  </script>
+</body>
+
+</html>
