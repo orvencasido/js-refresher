@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .amazon-btn {
+      background-color: rgb(255, 216, 20);
+      border-style: none;
+      border-radius: 20px;
+      font-size: 18px;
+      padding: 7px 50px;
+    }
+
+    .request-btn {
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+
+      margin-right: 20px;
+    }
+
+    .schedule-btn {
+      background-color: rgb(230, 230, 230);
+      font-weight: bold;
+      border-style: none;
+      padding: 11px 20px;
+      border-radius: 5px;
+    }
+
+    .gaming-button {
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+
+    .gaming-button-clicked {
+      background-color: rgb(223, 223, 223);
+      color: black;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+
+    .music-button {
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+
+    .music-button-clicked {
+      background-color: rgb(223, 223, 223);
+      color: black;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+
+    .tech-button {
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+
+    .tech-button-clicked {
+      background-color: rgb(223, 223, 223);
+      color: black;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-style: none;
+
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="amazon-btn">Add to Cart</button>
+
+  <br><br>
+  <button class="request-btn">Request now</button>
+  <button class="schedule-btn">Schedule for later</button>
+  <br><b></b>
+
+  <br><br>
+  <button onclick="changeStyle(`gaming-button`, `gaming-button-clicked`)" class="gaming-button">Gaming</button>
+  <button onclick="changeStyle(`music-button`, `music-button-clicked`)" class="music-button">Music</button>
+  <button onclick="changeStyle(`tech-button`, `tech-button-clicked`)" class="tech-button">Tech</button>
+
+  <script>
+    function changeStyle(className, classNameCliked) {
+      className = document.querySelector(`.${className}`);
+      let isActive;
+
+      if (className.classList.contains(classNameCliked)) {
+        isActive = true;
+      } else {
+        isActive = false;
+      }
+
+      if (isActive === false) {
+        className.classList.add(classNameCliked);
+      } else {
+        className.classList.remove(classNameCliked);
+      }
+    }
+  </script>
+</body>
+
+</html>
