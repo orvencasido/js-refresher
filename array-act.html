@@ -7,10 +7,34 @@
 
 <body>
   <script>
-    const nums = [10, 20, 30];
-    nums[2] = 99;
+    let num = [];
 
-    console.log(nums);
+    function getLastValue(array) {
+      return array[array.length - 1];
+    }
+
+    function arraySwap(array) {
+      if (array.length < 2) return array;
+
+      let temp = array[0];
+      array[0] = array[array.length - 1];
+      array[array.length - 1] = temp;
+
+      return array;
+    }
+
+    function loopCount() {
+      let result = "";
+
+      for (let i = 2; i <= 10; i += 2) {
+        result += i + (i < 10 ? ", " : "");
+      }
+
+      console.log(result);
+      return result;
+    }
+
+    loopCount();
   </script>
 </body>
 
