@@ -1,0 +1,13 @@
+.btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(236, 236, 236);
+  color: black;
+}

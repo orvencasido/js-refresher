@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <p>To Do List</p>
+  <input class="js-inputText" type="text" placeholder="What do you want to do?">
+  <button onclick="submitList()">Submit</button>
+  <button onclick="clearArray()">Clear</button>
+  <div class="displayText"></div>
+
+  <script>
+    let todoList = [];
+
+    function submitList() {
+      let inputText = document.querySelector(`.js-inputText`);
+      let text = inputText.value;
+
+      let displayText = document.querySelector(`.displayText`);
+
+      todoList.push(text);
+
+      displayText.innerHTML = ``;
+
+      for (let i = 0; i < todoList.length; i++) {
+        text = todoList[i];
+        displayText.innerHTML += `<p>${text}</p>`;
+      }
+
+      console.log(todoList);
+      inputText.value = ``;
+    }
+
+    function clearArray() {
+      todoList.splice(0, todoList.length);
+      displayText = document.querySelector(`.displayText`).innerHTML = ``;
+    } 
+  </script>
+</body>
+
+</html>

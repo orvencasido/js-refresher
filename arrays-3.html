@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .text-inside {
+      display: flex;
+      align-items: center;
+    }
+
+    .text-inside-2 {
+      margin-right: 10px;
+    }
+
+    .btn-inside {
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <input onkeydown="enterKey(event)" class="js-inputText" type="text" placeholder="Input Task">
+  <button onclick="saveBtn()">Save</button>
+
+  <div class="js-textList"></div>
+
+  <script>
+    let todoList = [];
+
+    function saveBtn() {
+      let inputText = document.querySelector(`.js-inputText`);
+      let text = inputText.value;
+      todoList.push(text);
+
+      renderList();
+      console.log(todoList);
+      clearInput();
+    }
+
+    function renderList() {
+      let textList = document.querySelector(`.js-textList`);
+      textList.innerHTML = ``;
+
+      for (let i = 0; i < todoList.length; i++) {
+        textList.innerHTML += `
+      <div class="text-inside">
+        <p class="text-inside-2">${todoList[i]}</p>
+        <button class="btn-inside" onclick="deleteItem(${i})">Delete</button>
+      </div>
+    `;
+      }
+    }
+
+    function deleteItem(index, end) {
+      todoList.splice(index, 1);
+      console.log(todoList);
+      renderList();
+    }
+
+    function clearInput() {
+      let inputText = document.querySelector(`.js-inputText`);
+
+      inputText.value = ``;
+    }
+
+    function enterKey(event) {
+      if (event.key === `Enter`) {
+        saveBtn();
+      }
+    }
+
+  </script>
+</body>
+
+</html>

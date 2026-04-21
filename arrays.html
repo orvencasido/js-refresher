@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Arrays</title>
+</head>
+
+<body>
+  <p>Todo List Practice 1</p>
+  <input class="js-items" type="text" placeholder="Todo Name">
+  <button onclick="addItem()">Add</button>
+
+  <br><br><br>
+
+  <p>Todo List Practice 2</p>
+  <input class="js-items-2" type="text" placeholder="Todo Name">
+  <button onclick="addItemWithText()">Add</button>
+  <p class="displayArray"></p>
+
+  <script>
+    let todo = [];
+
+    function addItemWithText() {
+      const itemText = document.querySelector(`.js-items-2`);
+      let item = itemText.value;
+
+      const displayText = document.querySelector(`.displayArray`);
+      todo.push(item);
+
+      displayText.innerHTML = ``;
+
+      for (let i = 0; i < todo.length; i++) {
+        let items = todo[i];
+        displayText.innerHTML += `<p>${items}</p>`;
+      }
+      console.log(todo);
+    }
+
+    function addItem() {
+      const textItem = document.querySelector(`.js-items`);
+      const item = textItem.value;
+
+      todo.push(item);
+      console.log(todo);
+      textItem.value = ``;
+    }
+  </script>
+</body>
+
+</html>
